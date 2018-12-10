@@ -13,9 +13,12 @@ describe 'As a visitor to an article show page' do
     fill_in :article_body, with: "New Body"
     click_button "Update Article"
     
+    new_article = Article.find(article.id)
+    
     expect(current_path).to eq(article_path(article))
     expect(page).to have_content("New Title")
     expect(page).to have_content("New Body")
     expect(page).to_not have_content("Title 1")
+    expect(page).to have_content("Article '#{new_article.title}' Updated!")
   end
 end

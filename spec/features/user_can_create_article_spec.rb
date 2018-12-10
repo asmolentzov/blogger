@@ -20,5 +20,7 @@ describe 'A visitor to the app' do
     expect(current_path).to eq(article_path(Article.last))
     expect(page).to have_content(title)
     expect(page).to have_content(body)
+    expect(page).to have_content("Article '#{Article.last.title}' Created!")
+    
   end
 end

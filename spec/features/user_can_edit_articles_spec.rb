@@ -11,7 +11,7 @@ describe 'As a visitor to an article show page' do
     expect(current_path).to eq(edit_article_path(article))
     fill_in :article_title, with: "New Title"
     fill_in :article_body, with: "New Body"
-    click_button "Edit Article"
+    click_button "Update Article"
     
     expect(current_path).to eq(article_path(article))
     expect(page).to have_content("New Title")

@@ -35,4 +35,15 @@ describe 'user sees one article' do
       expect(page).to have_content("So many thoughts on this article")
     end
   end
+  describe 'they should see comment information' do
+    it 'should show the count of comments on the article' do
+      article = Article.create!(title: "Title 1", body: "Body 1")
+      comment_1 = article.comments.create(author_name: "Me", body: "Commenty comments")
+      comment_2 = article.comments.create(author_name: "You", body: "So much to say")
+      
+      visit article_path(article)
+      
+      expect(page).to have_content("Comments (#{article.comments.size})")
+    end
+  end
 end

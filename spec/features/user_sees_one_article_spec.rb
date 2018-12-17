@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user sees one article do' do
+describe 'user sees one article' do
   describe 'they link from the articles index' do
     it 'should see article information' do
       article = Article.create!(title: "Title 1", body: "Body 1")
